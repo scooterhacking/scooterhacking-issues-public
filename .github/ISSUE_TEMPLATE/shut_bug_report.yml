@@ -98,4 +98,4 @@ body:
       description: Your discord or telegram username in case we need further details.
       placeholder: "Discord or telegram username"
     validations:
-      required: true
+      required: false
