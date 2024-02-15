@@ -56,7 +56,7 @@ body:
         - Xiaomi Pro, Pro2, 3
     validations:
       required: true
- - type: textarea
+  - type: textarea
     id: bug-description
     attributes:
       label: Description of the Bug
