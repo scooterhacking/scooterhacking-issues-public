@@ -92,3 +92,11 @@ body:
       placeholder: "Discord or telegram username"
     validations:
       required: false
+  - type: file
+    id: screenshot
+    attributes:
+      label: Upload a Screenshot
+      description: "If possible, upload a screenshot to help us better understand the issue."
+      multiple: true # Allows multiple files to be uploaded if needed
+    validations:
+     required: false # Set to true if you want to make this mandatory
