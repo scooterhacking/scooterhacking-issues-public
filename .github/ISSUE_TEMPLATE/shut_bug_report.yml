@@ -5,7 +5,7 @@ labels: ["bug", "shut"]
 body:
   - type: markdown
     attributes:
-      value: "Thank you for reporting a bug. Please fill in as much of the template below as you're able."
+      value: "Thank you for reporting a bug. Please fill in as much of the template below as you're able. Please add screenshots if possible."
   - type: dropdown
     id: typeofissue
     attributes:
@@ -60,15 +60,15 @@ body:
     id: bug-description
     attributes:
       label: Description of the Bug
-      description: Please describe the issue in as much detail as possible.
-      placeholder: "Please describe the issue in as much detail as possible."
+      description: Please describe the issue in as much detail as possible. Please add screenshots if possible..
+      placeholder: "Scooter does not accelerate."
     validations:
       required: true
   - type: textarea
     id: steps-to-reproduce
     attributes:
       label: Steps to Reproduce
-      description: Please provide the steps to reproduce the issue, if applicable.
+      description: Please provide the steps to reproduce the issue, if applicable. Please add screenshots if possible..
       placeholder: |
         1. Go to '...'
         2. Click on '....'
@@ -84,13 +84,6 @@ body:
       placeholder: "Expected result... Actual result..."
     validations:
       required: true
-  - type: input
-    id: screenshots
-    attributes:
-      label: Screenshots
-      description: If applicable, add screenshots to help explain your problem.
-    validations:
-      required: false
   - type: input
     id: contact-info
     attributes:
