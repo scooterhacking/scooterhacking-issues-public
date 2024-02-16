@@ -1,0 +1,8 @@
+# Issue template configuration
+blank_issues_enabled: false  # Disables the option for contributors to open a blank issue
+
+# External links
+contact_links:
+  - name: SHFW walkthrough (work in progress)  # Name of the link
+    url: https://lekrsu.github.io/shfw-walkthrough/  # URL you want to direct users to
+    about: This is a guide for SHFW configuration. Please check it out before reporting bugs.  # Short description about the link
