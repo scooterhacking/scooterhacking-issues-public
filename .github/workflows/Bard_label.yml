@@ -2,7 +2,7 @@ name: Label Issue Based on Dropdown
 
 on:
   issue_comment:
-    types: [created]
+    types: [openend]
 
 jobs:
   label-issue:
