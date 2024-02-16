@@ -1,0 +1,78 @@
+name: 🚀 Feature Request
+description: Report a new feature. Please try to provide as much info as possible.
+title: "Feature: "
+labels: ["feature"]
+body:
+  - type: dropdown
+    id: product
+    attributes:
+      label: Scooterhacking Tool
+      options:
+        - Utility (SHUT)
+        - Firmware (SHFW)
+    validations:
+        required: true
+  - type: dropdown
+    id: typeoffeature
+    attributes:
+      label: Type of feature
+      options:
+        - Communication
+        - UI / UX
+        - Performance
+        - Other
+    validations:
+      required: true
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options:
+        - low
+        - medium
+        - high
+    validations:
+      required: true
+  - type: input
+    id: shut_version
+    attributes:
+      label: SHUT Version
+      placeholder: e.g. SHUT 2.3.0 or RCx
+    validations:
+      required: true
+  - type: input
+    id: shfw_version
+    attributes:
+      label: SHFW Version
+      placeholder: e.g. SHFW 0.3.7
+    validations:
+      required: true
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Scooter model
+      options:
+        - Ninebot G30
+        - Ninebot G2
+        - Ninebot Es2, Es3, Es4
+        - Ninebot E20, E25, E45
+        - Xiaomi M365
+        - Xiaomi Pro, Pro2, 3
+    validations:
+      required: true
+  - type: textarea
+    id: feature-description
+    attributes:
+      label: Description of the new feature
+      description: Please describe the featuee in as much detail as possible. Please add screenshots if possible.
+      placeholder: "Cliff CFW"
+    validations:
+      required: true
+  - type: input
+    id: contact-info
+    attributes:
+      label: Contact Information
+      description: Your discord or telegram username in case we need further details.
+      placeholder: "Discord or telegram username"
+    validations:
+      required: false
