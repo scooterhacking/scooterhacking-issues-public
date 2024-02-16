@@ -1,5 +1,5 @@
 name: SHFW Bug Report
-description: Thank you for reporting a bug. Please fill in as much of the template below as you're able. Please add screenshots if possible.
+description: Report a SHFW bug. Please try to provide as much info as possible including screenshots.
 title: "SHFW BUG: "
 labels: ["bug", "shfw"]
 body:
