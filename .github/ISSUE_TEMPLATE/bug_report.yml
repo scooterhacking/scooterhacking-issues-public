@@ -1,7 +1,7 @@
 name: 🐛 Bug Report
-description: Report a SHFW bug. Please try to provide as much info as possible including screenshots.
+description: Report a bug. Please try to provide as much info as possible including screenshots.
 title: "BUG: "
-labels: ["bug", "shfw"]
+labels: ["bug"]
 body:
   - type: dropdown
     id: product
