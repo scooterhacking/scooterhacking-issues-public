@@ -1,8 +1,17 @@
-name: 🐛 SHFW Bug Report
+name: 🐛 Bug Report
 description: Report a SHFW bug. Please try to provide as much info as possible including screenshots.
-title: "SHFW BUG: "
+title: "BUG: "
 labels: ["bug", "shfw"]
 body:
+  - type: dropdown
+    id: product
+    attributes:
+      label: Scooterhacking Tool
+      options:
+        - Utility (SHUT)
+        - Firmware (SHFW)
+      validation:
+        required: true
   - type: dropdown
     id: typeofissue
     attributes:
