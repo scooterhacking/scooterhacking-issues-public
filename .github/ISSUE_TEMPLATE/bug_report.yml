@@ -10,7 +10,7 @@ body:
       options:
         - Utility (SHUT)
         - Firmware (SHFW)
-      validation:
+      validations:
         required: true
   - type: dropdown
     id: typeofissue
