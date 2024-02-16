@@ -9,9 +9,9 @@ body:
   - type: dropdown
     id: typeofissue
     attributes:
-      label: type of issue
+      label: Type of issue
       options:
-        - crash
+        - Crash
         - UI / UX fix
         - Performance issue
         - Other
@@ -20,7 +20,7 @@ body:
   - type: dropdown
     id: severity
     attributes:
-      label: severity of issue
+      label: Severity of issue
       options:
         - low (asthetic, minor issue)
         - medium (affects usability but has a workaround)
@@ -46,7 +46,6 @@ body:
     id: environment
     attributes:
       label: Scooter model
-      description: Where did the bug occur?
       options:
         - Ninebot G30
         - Ninebot G2
@@ -60,7 +59,7 @@ body:
     id: bug-description
     attributes:
       label: Description of the Bug
-      description: Please describe the issue in as much detail as possible. Please add screenshots if possible..
+      description: Please describe the issue in as much detail as possible. Please add screenshots if possible.
       placeholder: "Scooter does not accelerate."
     validations:
       required: true
@@ -68,7 +67,7 @@ body:
     id: steps-to-reproduce
     attributes:
       label: Steps to Reproduce
-      description: Please provide the steps to reproduce the issue, if applicable. Please add screenshots if possible..
+      description: Please provide the steps to reproduce the issue, if applicable. Please add screenshots if possible.
       placeholder: |
         1. Go to '...'
         2. Click on '....'
