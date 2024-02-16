@@ -13,14 +13,14 @@ jobs:
         with:
           script: |
             const issueBody = context.payload.issue.body;
-            const shfwLabel = 'Firmware (SHFW)';
-            const shutLabel = 'Utility (SHUT)';
+            const shfwLabel = 'shfw';
+            const shutLabel = 'shut';
 
             let labelsToAdd = [];
 
-            if (issueBody.includes('"SHFW"')) {
+            if (issueBody.includes('"Firmware (SHFW)')) {
               labelsToAdd.push(shfwLabel);
-            } else if (issueBody.includes('"shut"')) {
+            } else if (issueBody.includes('"Utility (SHUT)"')) {
               labelsToAdd.push(shutLabel);
             }
 
