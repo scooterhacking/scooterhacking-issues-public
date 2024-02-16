@@ -1,0 +1,43 @@
+name: Label Issue Based on Dropdown
+
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  label-issue:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Get dropdown selection
+        id: get-selection
+        run: |
+          comment=${{ github.event.comment.body }}
+          selection=$(echo "$comment" | grep -iE '(SHFW|SHUT)')
+          echo "::set-output name=selection::$selection"
+
+      - name: Apply label based on selection
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const selection = core.getInput('selection');
+            const issueNumber = github.context.issue.number;
+            if (selection === 'SHFW') {
+              github.issues.addLabels({
+                owner: github.context.repo.owner,
+                repo: github.context.repo.repo,
+                issue_number: issueNumber,
+                labels: ['shfw']
+              });
+            } else if (selection === 'SHUT') {
+              github.issues.addLabels({
+                owner: github.context.repo.owner,
+                repo: github.context.repo.repo,
+                issue_number: issueNumber,
+                labels: ['shut']
+              });
+            } else {
+              console.log('Invalid selection. Label not applied.');
+            }
+
