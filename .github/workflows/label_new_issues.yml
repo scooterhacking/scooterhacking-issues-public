@@ -15,6 +15,10 @@ jobs:
             const issueBody = context.payload.issue.body;
             const shfwLabel = 'shfw';
             const shutLabel = 'shut';
+            const criticalLabel = 'critical';
+            const highLabel = 'high';
+            const mediumLabel = 'medium';
+            const lowLabel = 'low';
 
             let labelsToAdd = [];
 
@@ -22,7 +26,14 @@ jobs:
               labelsToAdd.push(shfwLabel);
             } else if (issueBody.includes('Utility (SHUT)')) {
               labelsToAdd.push(shutLabel);
-            }
+            } else if (issueBody.includes('low (asthetic, minor issue)')) {
+              labelsToAdd.push(lowLabel);
+            } else if (issueBody.includes('medium (affects usability but has a workaround)')) {
+            labelsToAdd.push(mediumLabel);
+            } else if (issueBody.includes('high (major functionality broken, no workaround)')) {
+              labelsToAdd.push(highLabel);
+            } else if (issueBody.includes('ciritcal (app crash, data loss)')) {
+              labelsToAdd.push(criticalLabel);
 
             if (labelsToAdd.length > 0) {
               github.rest.issues.addLabels({
