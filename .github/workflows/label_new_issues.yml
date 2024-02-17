@@ -29,7 +29,7 @@ jobs:
             } else if (issueBody.includes('low (asthetic, minor issue)')) {
               labelsToAdd.push(lowLabel);
             } else if (issueBody.includes('medium (affects usability but has a workaround)')) {
-            labelsToAdd.push(mediumLabel);
+              labelsToAdd.push(mediumLabel);
             } else if (issueBody.includes('high (major functionality broken, no workaround)')) {
               labelsToAdd.push(highLabel);
             } else if (issueBody.includes('critical (app crash, data loss)')) {
