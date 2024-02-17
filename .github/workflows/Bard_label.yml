@@ -42,5 +42,3 @@ jobs:
             } else {
               console.log('No product selection found in the issue body.');
             }
-          env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
