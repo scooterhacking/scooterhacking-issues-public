@@ -18,9 +18,9 @@ jobs:
 
             let labelsToAdd = [];
 
-            if (issueBody.includes('"Firmware (SHFW)')) {
+            if (issueBody.includes('Firmware (SHFW)')) {
               labelsToAdd.push(shfwLabel);
-            } else if (issueBody.includes('"Utility (SHUT)"')) {
+            } else if (issueBody.includes('Utility (SHUT)')) {
               labelsToAdd.push(shutLabel);
             }
 
