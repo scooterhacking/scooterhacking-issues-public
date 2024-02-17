@@ -25,7 +25,7 @@ jobs:
             // Check for specific dropdown selections
             if (issue_body.includes('Product: Utility (SHUT)')) {
               label = 'shut';
-            } else if (issue_body.includes('Product: Firmware (SHFW)')) {
+            } else if (issue_body.includes('Firmware (SHFW)')) {
               label = 'shfw';
             }
 
