@@ -32,8 +32,14 @@ jobs:
             labelsToAdd.push(mediumLabel);
             } else if (issueBody.includes('high (major functionality broken, no workaround)')) {
               labelsToAdd.push(highLabel);
-            } else if (issueBody.includes('ciritcal (app crash, data loss)')) {
+            } else if (issueBody.includes('critical (app crash, data loss)')) {
               labelsToAdd.push(criticalLabel);
+            } else if (issueBody.includes('low (take your time)')) {
+              labelsToAdd.push(lowLabel);
+            } else if (issueBody.includes('medium (upcoming releases)')) {
+              labelsToAdd.push(mediumLabel);
+            } else if (issueBody.includes('high (definitely next release)')) {
+              labelsToAdd.push(highLabel);
 
             if (labelsToAdd.length > 0) {
               github.rest.issues.addLabels({
