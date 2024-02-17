@@ -31,7 +31,7 @@ body:
         - low (asthetic, minor issue)
         - medium (affects usability but has a workaround)
         - high (major functionality broken, no workaround)
-        - ciritcal (app crash, data loss)
+        - critical (app crash, data loss)
     validations:
       required: true
   - type: input
