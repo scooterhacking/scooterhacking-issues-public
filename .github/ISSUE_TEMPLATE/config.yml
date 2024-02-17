@@ -3,6 +3,9 @@ blank_issues_enabled: false  # Disables the option for contributors to open a bl
 
 # External links
 contact_links:
+  - name: Scooterhacking issues  # Name of the link
+    url: https://github.com/scooterhacking/scooterhacking-issues-public/issues  # URL you want to direct users to
+    about: Please have a look at the open issues before opening a new bug report or feature request.  # Short description about the link
   - name: SHFW walkthrough (work in progress)  # Name of the link
     url: https://lekrsu.github.io/shfw-walkthrough/  # URL you want to direct users to
     about: This is a guide for SHFW configuration. Please check it out before reporting bugs.  # Short description about the link
