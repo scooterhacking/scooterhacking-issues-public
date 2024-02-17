@@ -1,43 +1,46 @@
-name: Label Issue Based on Dropdown
+name: Label Issue Based on Dropdown Selection
 
 on:
-  issue_comment:
-    types: [opened]
+  issues:
+    types: [opened, edited]
 
 jobs:
-  label:
+  label-issue:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-      - name: Get dropdown selection
-        id: get-selection
-        run: |
-          comment=${{ github.event.comment.body }}
-          selection=$(echo "$comment" | grep -iE '(SHFW|SHUT)')
-          echo "::set-output name=selection::$selection"
-
-      - name: Apply label based on selection
+      - name: Apply label based on issue content
         uses: actions/github-script@v6
         with:
           script: |
-            const selection = core.getInput('selection');
-            const issueNumber = github.context.issue.number;
-            if (selection === 'SHFW') {
-              github.issues.addLabels({
-                owner: github.context.repo.owner,
-                repo: github.context.repo.repo,
-                issue_number: issueNumber,
-                labels: ['shfw']
-              });
-            } else if (selection === 'SHUT') {
-              github.issues.addLabels({
-                owner: github.context.repo.owner,
-                repo: github.context.repo.repo,
-                issue_number: issueNumber,
-                labels: ['shut']
-              });
-            } else {
-              console.log('Invalid selection. Label not applied.');
+            const issue_number = context.issue.number;
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const issue_body = context.payload.issue.body;
+
+            let label = '';
+
+            // Check for specific dropdown selections
+            if (issue_body.includes('Product: Utility (SHUT)')) {
+              label = 'shut';
+            } else if (issue_body.includes('Product: Firmware (SHFW)')) {
+              label = 'shfw';
             }
 
+            // Apply the label if a selection was found
+            if (label) {
+              console.log(`Applying label: ${label}`);
+              const octokit = github.getOctokit(process.env.GITHUB_TOKEN);
+              await octokit.rest.issues.addLabels({
+                owner,
+                repo,
+                issue_number,
+                labels: [label]
+              });
+            } else {
+              console.log('No product selection found in the issue body.');
+            }
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
