@@ -28,9 +28,9 @@ body:
     attributes:
       label: Priority
       options:
-        - low
-        - medium
-        - high
+        - low (take your time)
+        - medium (upcoming releases)
+        - high (definitely next release)
     validations:
       required: true
   - type: input
