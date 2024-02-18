@@ -57,7 +57,7 @@ body:
         - Ninebot Es2, Es3, Es4
         - Ninebot E20, E25, E45
         - Xiaomi M365
-        - Xiaomi Pro, Pro2, 3
+        - Xiaomi Pro, Pro2, 1s, essential, 3
     validations:
       required: true
   - type: textarea
