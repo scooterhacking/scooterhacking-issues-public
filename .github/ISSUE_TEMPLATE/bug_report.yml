@@ -53,12 +53,25 @@ body:
     attributes:
       label: Scooter model
       options:
-        - Ninebot G30
+        - Ninebot Max G3
         - Ninebot G2
+        - Ninebot G65
+        - Ninebot G30
+        - Ninebot ZT3 Pro
+        - Ninebot GT3
+        - Ninebot GT1/GT2
+        - Ninebot E3
+        - Ninebot E2/E2 Plus
+        - Ninebot E2 Pro
         - Ninebot Es2, Es3, Es4
         - Ninebot E20, E25, E45
         - Xiaomi M365
         - Xiaomi Pro, Pro2, 1s, essential, 3
+        - Ninebot F-Series
+        - Ninebot D-Series
+        - Ninebot P-series
+        - Ninebot Air T15
+        - Segway Navimow i108
     validations:
       required: true
   - type: textarea
