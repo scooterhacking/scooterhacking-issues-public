@@ -13,6 +13,18 @@ body:
     validations:
         required: true
   - type: dropdown
+    id: plattform
+    attributes:
+      label: device plattform
+      options:
+        - Android
+        - iOS
+        - Windows
+        - MacOS
+        - Linux
+    validations:
+        required: true
+  - type: dropdown
     id: typeofissue
     attributes:
       label: Type of issue
