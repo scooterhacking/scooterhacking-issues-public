@@ -1,8 +1,11 @@
-name: Issue Labeler for Dropdown
+name: Issue Labeler & Title for Dropdown
 
 on:
   issues:
     types: [opened]
+
+permissions:
+  issues: write
 
 jobs:
   label:
@@ -12,49 +15,63 @@ jobs:
       - uses: actions/github-script@v7
         with:
           script: |
-            const issueBody = context.payload.issue.body;
-            const shfwLabel = 'shfw';
-            const shutLabel = 'shut';
-            const criticalLabel = 'critical';
-            const highLabel = 'high';
-            const mediumLabel = 'medium';
-            const lowLabel = 'low';
+            const issue = context.payload.issue;
+            const issueBody = issue.body || '';
 
+            // --- Labels (unveraendert) ---
             let labelsToAdd = [];
 
             if (issueBody.includes('Firmware (SHFW)')) {
-              labelsToAdd.push(shfwLabel);
+              labelsToAdd.push('shfw');
             }
             if (issueBody.includes('Utility (SHUT)')) {
-              labelsToAdd.push(shutLabel);
+              labelsToAdd.push('shut');
             }
             if (issueBody.includes('low (asthetic, minor issue)')) {
-              labelsToAdd.push(lowLabel);
+              labelsToAdd.push('low');
             }
             if (issueBody.includes('medium (affects usability but has a workaround)')) {
-              labelsToAdd.push(mediumLabel);
+              labelsToAdd.push('medium');
             }
             if (issueBody.includes('high (major functionality broken, no workaround)')) {
-              labelsToAdd.push(highLabel);
-            } 
+              labelsToAdd.push('high');
+            }
             if (issueBody.includes('critical (app crash, data loss)')) {
-              labelsToAdd.push(criticalLabel);
+              labelsToAdd.push('critical');
             }
             if (issueBody.includes('low (take your time)')) {
-              labelsToAdd.push(lowLabel);
+              labelsToAdd.push('low');
             }
             if (issueBody.includes('medium (upcoming releases)')) {
-              labelsToAdd.push(mediumLabel);
+              labelsToAdd.push('medium');
             }
             if (issueBody.includes('high (definitely next release)')) {
-              labelsToAdd.push(highLabel);
+              labelsToAdd.push('high');
             }
 
             if (labelsToAdd.length > 0) {
-              github.rest.issues.addLabels({
+              await github.rest.issues.addLabels({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                issue_number: context.payload.issue.number,
+                issue_number: issue.number,
                 labels: labelsToAdd
+              });
+            }
+
+            // --- Titel-Praefix (ersetzt title: "BUG: " / "Feature: " in den Formularen) ---
+            // Bug-Formular enthaelt "Type of issue", Feature-Formular "Type of feature".
+            let prefix = '';
+            if (issueBody.includes('Type of issue')) {
+              prefix = 'BUG: ';
+            } else if (issueBody.includes('Type of feature')) {
+              prefix = 'Feature: ';
+            }
+
+            if (prefix && !issue.title.startsWith(prefix)) {
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                title: prefix + issue.title
               });
             }
