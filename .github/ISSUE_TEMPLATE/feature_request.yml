@@ -1,6 +1,5 @@
 name: 🚀 Feature Request
 description: Report a new feature. Please try to provide as much info as possible.
-title: "Feature: "
 labels: ["feature"]
 body:
   - type: dropdown
