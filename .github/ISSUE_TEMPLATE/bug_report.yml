@@ -1,6 +1,5 @@
 name: 🐛 Bug Report
 description: Report a bug. Please try to provide as much info as possible including screenshots.
-title: "BUG: "
 labels: ["bug"]
 body:
   - type: dropdown
